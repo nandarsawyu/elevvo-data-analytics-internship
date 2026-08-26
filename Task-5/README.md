@@ -58,7 +58,7 @@ https://github.com/lerocha/chinook-database/blob/master/ChinookDatabase/DataSour
 
 ---
 
-##️ Database Structure
+### Database Structure
 
 The main relationships used for the sales analysis are:
 
