@@ -92,7 +92,7 @@ The `InvoiceLine` table is particularly important because it provides the produc
 
 ---
 
-##️ Tools & Technologies
+## Tools & Technologies
 
 - **MySQL**
 - **MySQL Workbench**
