@@ -73,6 +73,6 @@ Dynamic Slicers were integrated across all Pivot Tables and Pivot Charts to enab
 ```text
 Task_1_Sales_Performance_Dashboard/
 ├── README.md
-├── Superstore_Sales_Dashboard.xlsx
+├── Superstore_Sales_Dashboard.csv
 └── screenshots/
     └── sales_dashboard.png
