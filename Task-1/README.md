@@ -1,78 +1,74 @@
 # Task 1: Sales Performance Dashboard Using Excel
 
 ## Project Overview
-This project focuses on analyzing sales performance using Microsoft Excel. Raw Superstore sales data was cleaned, organized, and analyzed using PivotTables, culminating in an interactive business performance dashboard[cite: 1].
+This project focuses on analyzing sales performance for an e-commerce retail business using Microsoft Excel. The raw Superstore sales dataset was transformed through data cleaning, structured with date intelligence formulas, aggregated using Pivot Tables, and presented via an interactive business dashboard featuring dynamic Slicers.
 
 ---
 
-## Dataset
+## Dataset Description
 * **Dataset Name:** Superstore Sales Dataset
 * **Source:** Kaggle
-* **Description:** Contains transactional data including order details, customer demographics, product categories, geographic regions, order dates, and sales revenue[cite: 1].
+* **Scope:** 9,994 transaction records spanning from 2015 to 2018 across multiple categories, customer segments, and geographic regions.
 
 ---
 
-## Objectives
-* Clean and structure raw transactional sales data.
-* Create calculated columns for date intelligence (Year, Year-Month, Month Name).
-* Calculate core business KPIs (Total Revenue, Orders, Average Order Value).
-* Utilize PivotTables and PivotCharts to examine multidimensional performance.
-* Analyze monthly trends and evaluate Year-over-Year (YoY) revenue growth.
-* Build a dynamic, dynamic-filtered dashboard using interactive Slicers.
+## Project Objectives
+* Clean, format, and structure raw transactional data into an official Excel Table.
+* Create calculated helper columns for time-series analysis (`Order Year`, `Year-Month`, `Month Name`).
+* Compute executive-level Key Performance Indicators (KPIs).
+* Build multi-dimensional Pivot Tables to evaluate sales across trends, categories, and geographic regions.
+* Calculate Month-over-Month (MoM) and Year-over-Year (YoY) percentage revenue growth.
+* Implement interactive Slicers connected across all Pivot Tables for synchronized cross-filtering.
 
 ---
 
-## Key KPIs
-* **Total Revenue:** Overall gross revenue generated.
-* **Total Orders:** Count of unique sales transactions.
-* **Average Order Value (AOV):** Mean revenue generated per transaction.
-* **Total Customers:** Unique customer count.
-* **Total Products:** Product variety sold.
+## Key Metrics & Business KPIs
+
+| Metric | Description | Total Value |
+| :--- | :--- | :--- |
+| **Total Revenue** | Aggregate sales volume generated across all orders | **$2,297,200.86** |
+| **Total Profit** | Aggregate gross profit | **$286,397.02** |
+| **Total Orders** | Total unique purchase transactions | **5,009** |
+| **Total Units Sold** | Total physical quantity of products shipped | **37,873** |
+| **Total Customers** | Unique customer headcount | **793** |
 
 ---
 
-## Analysis & Visualizations
+## Excel Features & Workflow
 
-### 1. Annual & YoY Growth Analysis
-* **Formula:**  
-  $$\text{YoY Growth} = \frac{\text{Current Year Sales} - \text{Previous Year Sales}}{\text{Previous Year Sales}}$$
-* Evaluated annual revenue progression and percentage changes year-over-year.
+### 1. Data Import & Transformation
+* Converted raw CSV data into an Excel Table named `SuperstoreData`.
+* Formatted currency (`Sales`, `Profit`), integer (`Quantity`), and date columns (`Order Date`, `Ship Date`).
+* Added date intelligence formulas:
+  * `Order Year`: `=YEAR([@[Order Date]])`
+  * `Year-Month`: `=TEXT([@[Order Date]], "YYYY-MM")`
+  * `Month Name`: `=TEXT([@[Order Date]], "mmm")`
 
-### 2. Time Series & Segment Breakdown
-* **Monthly Sales:** Evaluates seasonal patterns and sales trajectory across months.
-* **Sales by Category:** Identifies primary product categories driving total revenue.
-* **Sales by Region:** Displays geographic distribution across key operating regions.
-* **Top 10 Products:** Highlights the highest revenue-generating individual products.
-* **Sales by Segment:** Tracks revenue contributions across Customer, Corporate, and Home Office segments.
+### 2. Pivot Table Aggregations
+* **KPI Summary Cards:** Created backend summaries for total revenue, profit, unit volume, and order counts
+* **Monthly Performance Trend:** Grouped sales and profit by `Year-Month` to trace long-term trends.
+* **Category Breakdown:** Aggregated revenue by `Category` and `Sub-Category`.
+* **Regional Distribution:** Analyzed performance across Central, East, South, and West regions.
 
----
+### 3. Year-over-Year (YoY) Growth Calculation
+* Configured a custom calculation using Pivot Table **Value Field Settings**:
+  * **Show Values As:** `% Difference From`
+  * **Base Field:** `Order Year`
+  * **Base Item:** `(previous)`
+* **Formula Applied:**
+  $$\text{YoY Growth \%} = \frac{\text{Sales}_{\text{Current Year}} - \text{Sales}_{\text{Previous Year}}}{\text{Sales}_{\text{Previous Year}}}$$
 
-## Interactive Dashboard Features
-Dynamic Slicers were integrated across all Pivot Tables and Pivot Charts to enable synchronized filtering by:
-* **Region**
-* **Category**
-* **Segment**
 
----
-
-## Key Insights
-* Sales expanded steadily, showing significant upward movement between 2015 and 2017.
-* **2017** recorded the highest annual sales overall.
-* **2016** experienced the strongest relative expansion, achieving a peak YoY sales growth of **~29.47%**.
-* Revenue distribution exhibits high concentration, with a top subset of products accounting for a substantial portion of overall sales.
-
----
-
-## Tools & Technical Skills
-* **Tools:** Microsoft Excel (Tables, PivotTables, PivotCharts, Slicers, Conditional Formatting)
-* **Skills:** Data Transformation, KPI Development, Date Calculation Formulas, YoY Time-Series Analysis, Dashboard UX/UI Design
+### 4. Interactive Dashboard & Slicers
+* Built dynamic visual charts: **Combo Trend Chart** (Line & Column), **Clustered Bar Chart** (Category), and **Doughnut Chart** (Regional distribution).
+* Added synchronized **Slicers** (`Region`, `Category`, `Segment`) connected via **Report Connections** to update all dashboard elements simultaneously.
 
 ---
 
-## Repository Structure
-```text
-Task_1_Sales_Performance_Dashboard/
-├── README.md
-├── Superstore_Sales_Dashboard.csv
-└── screenshots/
-    └── sales_dashboard.png
+## Key Business Insights
+* **Annual Growth Trajectory:** Overall revenue expanded steadily over the 4-year period, with **2017** generating the highest total sales volume.
+* **Peak YoY Expansion:** **2016** achieved the highest YoY revenue growth rate at approximately **29.47%**.
+* **Category Drivers:** Technology and Office Supplies contributed the largest share to total profitability, whereas Furniture experienced lower profit margins due to higher shipping costs and discounting.
+* **Geographic Distribution:** The **West** region led all areas in both total sales volume and net profitability.
+
+---
